@@ -396,6 +396,15 @@
   resolved "https://registry.npmjs.org/@istanbuljs/schema/-/schema-0.1.3.tgz"
   integrity sha512-ZXRY4jNvVgSVQ8DL3LTcakaAtXwTVUxE81hslsyD2AtoXW/wVob10HkOJ1X/pAlcI7D+2YoZKg5do8G/w6RYgA==
 
+"@jercle/yargonaut@1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@jercle/yargonaut/-/yargonaut-1.1.5.tgz#b640a73a2e82d6f9b636e93f310c9bb4947f5754"
+  integrity sha512-zBp2myVvBHp1UaJsNTyS6q4UDKT7eRiqTS4oNTS6VQMd6mpxYOdbeK4pY279cDCdakGy6hG0J3ejoXZVsPwHqw==
+  dependencies:
+    chalk "^4.1.2"
+    figlet "^1.5.2"
+    parent-require "^1.0.0"
+
 "@jest/console@^29.7.0":
   version "29.7.0"
   resolved "https://registry.npmjs.org/@jest/console/-/console-29.7.0.tgz"
@@ -648,7 +657,19 @@
   resolved "https://registry.npmjs.org/@lukeed/csprng/-/csprng-1.1.0.tgz"
   integrity sha512-Z7C/xXCiGWsg0KuKsHTKJxbWhpI3Vs5GwLfOean7MGyVFGqdRgBbAjOCh6u4bbjPc/8MJ2pZmK/0DLdCbivLDA==
 
-"@mikro-orm/core@^6.3.2":
+"@mikro-orm/cli@^6.3.2":
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/cli/-/cli-6.3.2.tgz#bbb5d3c9112912e37c1efb713890bce1b1eefba9"
+  integrity sha512-4XJ8TiA0JAQS5AHF7muz+RrMKDdXCBg0x8E7mwgH/Bk2FBxK178NVtk6ov/CEBuLja8MiBgzGG3jh65sV0wUFQ==
+  dependencies:
+    "@jercle/yargonaut" "1.1.5"
+    "@mikro-orm/core" "6.3.2"
+    "@mikro-orm/knex" "6.3.2"
+    fs-extra "11.2.0"
+    tsconfig-paths "4.2.0"
+    yargs "17.7.2"
+
+"@mikro-orm/core@6.3.2", "@mikro-orm/core@^6.3.2":
   version "6.3.2"
   resolved "https://registry.npmjs.org/@mikro-orm/core/-/core-6.3.2.tgz"
   integrity sha512-WgTO0InqjMW8nho4n/bk/fQNU1HYn6w4RtgYZ+e9wlFmnrEBj2pXTS68IV9DmUNYHAVNVVZl7/EcMlYaVzRkVg==
@@ -672,7 +693,7 @@
 
 "@mikro-orm/migrations@^6.3.2":
   version "6.3.2"
-  resolved "https://registry.npmjs.org/@mikro-orm/migrations/-/migrations-6.3.2.tgz"
+  resolved "https://registry.yarnpkg.com/@mikro-orm/migrations/-/migrations-6.3.2.tgz#9fd2fde2f983f09968ef3ba265356f5397c6730a"
   integrity sha512-nbzH6ZblpD04LTRJPgjCXhIeA2yLZshutrJnN06jU7iRPYkm0A/1VSCg0POaApgzyz+h+WxzK77FhUaCwJn9zg==
   dependencies:
     "@mikro-orm/knex" "6.3.2"
@@ -756,6 +777,11 @@
     iterare "1.2.1"
     path-to-regexp "3.2.0"
     tslib "2.6.3"
+
+"@nestjs/mapped-types@*":
+  version "2.0.5"
+  resolved "https://registry.npmjs.org/@nestjs/mapped-types/-/mapped-types-2.0.5.tgz"
+  integrity sha512-bSJv4pd6EY99NX9CjBIyn4TVDoSit82DUZlL4I3bqNfy5Gt+gXTa86i3I/i0iIV9P4hntcGM5GyO+FhZAhxtyg==
 
 "@nestjs/platform-express@^10.0.0":
   version "10.3.10"
@@ -2140,14 +2166,9 @@ doctrine@^3.0.0:
   dependencies:
     esutils "^2.0.2"
 
-dotenv@16.4.5:
+dotenv@16.4.5, dotenv@^16.4.5:
   version "16.4.5"
   resolved "https://registry.npmjs.org/dotenv/-/dotenv-16.4.5.tgz"
-  integrity sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
-
-dotenv@^16.4.5:
-  version "16.4.5"
-  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.4.5.tgz#cdd3b3b604cb327e286b4762e13502f717cb099f"
   integrity sha512-ZmdL2rui+eB2YwhsWzjInR8LldtZHGDoQ1ugH85ppHKwpUHL7j7rN0Ti9NCnGiQbhaZ11FpR+7ao1dNsmduNUg==
 
 eastasianwidth@^0.2.0:
@@ -2483,8 +2504,10 @@ fast-diff@^1.1.2:
     "@mikro-orm/seeder" "^6.3.2"
     "@nestjs/common" "^10.0.0"
     "@nestjs/core" "^10.0.0"
+    "@nestjs/mapped-types" "*"
     "@nestjs/platform-express" "^10.0.0"
-    fast-food-api-nest "file:../../../Users/denis/AppData/Local/Yarn/Cache/v6/npm-fast-food-api-nest-0.0.1-e8c2ae19-5e1e-4c77-889a-6ba7837a7db9-1722617981442/node_modules/fast-food-api-nest"
+    dotenv "^16.4.5"
+    fast-food-api-nest "file:../../../Users/denis/AppData/Local/Yarn/Cache/v6/npm-fast-food-api-nest-0.0.1-ca10ea0a-0df6-483d-84c1-5367c49d3924-1722619980018/node_modules/fast-food-api-nest"
     reflect-metadata "^0.2.0"
     rxjs "^7.8.1"
 
@@ -2527,6 +2550,11 @@ fb-watchman@^2.0.0:
   integrity sha512-p5161BqbuCaSnB8jIbzQHOlpgsPmK5rJVDfDKO91Axs5NC1uu3HRQm6wt9cd9/+GtQQIO53JdGXXoyDpTAsgYA==
   dependencies:
     bser "2.1.1"
+
+figlet@^1.5.2:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/figlet/-/figlet-1.7.0.tgz#46903a04603fd19c3e380358418bb2703587a72e"
+  integrity sha512-gO8l3wvqo0V7wEFLXPbkX83b7MVjRrk1oRLfYlZXol8nEpb/ON9pcKLI4qpBv5YtOTfrINtqb7b40iYY2FTWFg==
 
 figures@^3.0.0, figures@^3.2.0:
   version "3.2.0"
@@ -4053,6 +4081,11 @@ parent-module@^1.0.0:
   dependencies:
     callsites "^3.0.0"
 
+parent-require@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/parent-require/-/parent-require-1.0.0.tgz#746a167638083a860b0eef6732cb27ed46c32977"
+  integrity sha512-2MXDNZC4aXdkkap+rBBMv0lUsfJqvX5/2FiYYnfCnorZt3Pk06/IOR5KeaoghgS2w07MLWgjbsnyaq6PdHn2LQ==
+
 parse-json@^5.2.0:
   version "5.2.0"
   resolved "https://registry.npmjs.org/parse-json/-/parse-json-5.2.0.tgz"
@@ -5304,7 +5337,7 @@ yargs-parser@21.1.1, yargs-parser@^21.0.1, yargs-parser@^21.1.1:
   resolved "https://registry.npmjs.org/yargs-parser/-/yargs-parser-21.1.1.tgz"
   integrity sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw==
 
-yargs@^17.3.1:
+yargs@17.7.2, yargs@^17.3.1:
   version "17.7.2"
   resolved "https://registry.npmjs.org/yargs/-/yargs-17.7.2.tgz"
   integrity sha512-7dSzzRQ++CKnNI/krKnYRV7JKKPUXMEh61soaHKg9mrWEhzFWhFnxPxGl+69cD1Ou63C13NUPCnmIcrvqCuM6w==
