@@ -19,4 +19,13 @@ export class User {
 
   @Property()
   email!: string;
+
+  @Property({ onCreate: () => new Date() })
+  createdAt = new Date();
+
+  @Property({ onUpdate: () => new Date() })
+  updatedAt = new Date();
+
+  @Property({ default: false })
+  isDeleted: boolean = false;
 }
