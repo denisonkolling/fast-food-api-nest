@@ -5,9 +5,18 @@ import { MikroOrmModule } from '@mikro-orm/nestjs';
 import { UserModule } from './user/user.module';
 import { ProductModule } from './product/product.module';
 import { CustomerModule } from './customer/customer.module';
+import { OrderItemModule } from './order-item/order-item.module';
+import { OrderModule } from './order/order.module';
 
 @Module({
-  imports: [MikroOrmModule.forRoot(), UserModule, ProductModule, CustomerModule],
+  imports: [
+    MikroOrmModule.forRoot(),
+    UserModule,
+    ProductModule,
+    CustomerModule,
+    OrderItemModule,
+    OrderModule,
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
