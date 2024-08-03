@@ -27,10 +27,6 @@ export class Order {
   @OneToMany({ entity: () => OrderItem, mappedBy: 'order' })
   items = new Collection<OrderItem>(this);
 
-  constructor(customer: Customer) {
-    this.customer = customer;
-    this.items = new Collection<OrderItem>(this);
-  }
 
   addProduct(product: Product, quantity: number, price: number) {
     const orderItem = new OrderItem();
