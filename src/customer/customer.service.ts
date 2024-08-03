@@ -22,8 +22,8 @@ export class CustomerService {
     return `This action returns all customer`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} customer`;
+  async findOne(id: number): Promise<Customer> {
+    return await this.customerRepository.findOne({ id });
   }
 
   update(id: number, updateCustomerDto: UpdateCustomerDto) {
