@@ -20,6 +20,9 @@ export class User {
   @Property()
   email!: string;
 
+  @Property()
+  password!: string;
+
   @Property({ onCreate: () => new Date() })
   createdAt = new Date();
 
