@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { CreateOrderDto } from './dto/create-order.dto';
 import { UpdateOrderDto } from './dto/update-order.dto';
 import { Order } from './entities/order.entity';
-import { InjectRepository } from '@mikro-orm/nestjs';
 import { ProductService } from 'src/product/product.service';
 import { CustomerService } from 'src/customer/customer.service';
 import { EntityManager } from '@mikro-orm/postgresql';
@@ -10,7 +9,6 @@ import { EntityManager } from '@mikro-orm/postgresql';
 @Injectable()
 export class OrderService {
   constructor(
-    @InjectRepository(Order)
     private readonly productService: ProductService,
     private readonly customerService: CustomerService,
     private readonly entityManager: EntityManager,
