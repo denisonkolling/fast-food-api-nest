@@ -13,7 +13,7 @@ export class ProductService {
   async create(createProductDto: CreateProductDto) {
     const product = new Product();
     this.entityManager.assign(product, createProductDto);
-    await this.entityManager.persist(product).flush();
+    await this.entityManager.persistAndFlush(product);
     return product;
   }
 

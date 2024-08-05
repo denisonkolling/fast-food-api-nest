@@ -45,7 +45,7 @@ export class OrderService {
 
     newOrder.total = totalOrderValue;
 
-    await this.entityManager.persist(newOrder).flush();
+    await this.entityManager.persistAndFlush(newOrder);
     return newOrder;
   }
 
